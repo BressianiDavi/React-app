@@ -1,2 +1,2 @@
-# React App
- Project: from 0 to React, my first site created 100% in React
+# Company React-app
+ Project : from 0 to React, First site 100% created in React
