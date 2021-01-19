@@ -14,7 +14,6 @@ class App extends Component {
       <div classname="App">
           <Cabecalho/>
           <Route path='/' exact component={Inicio} />
-
           <Route path='/servicos' component={Servicos} />
 
           <Rodape/>
