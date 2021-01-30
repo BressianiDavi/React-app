@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 
-import config from './../firebase-config'
+import config from "./../firebase-config";
 
 class Portfolio extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      portfolio: {
-        titulo: 'Paris',  
-        descricao: 'Cidade Luz'
-      }
-    }
+      portfolio: {},
+    };
+    config.syncState("portfolio", {
+      context: this,
+      state: "portfolio",
+      asArraY: false,
+    });
   }
 
   render() {
