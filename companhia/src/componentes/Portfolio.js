@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 
 import config from "./../firebase-config";
+import itemPortfolio from './itemPortfolio'
 
 class Portfolio extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      portfolio: {},
+      portfolio: {
+        titulo: 'Paris',
+        descricao: 'Cidade Luz'
+      },
     };
     config.syncState("portfolio", {
       context: this,
@@ -23,15 +27,12 @@ class Portfolio extends Component {
         <br />
         <h4>What we have created</h4>
         <div className="row text-center ">
-          <div className="col-sm-4">
-            <div className="thumbnail">
-              <img src="paris.jpg" alt="Paris" width="400" height="100" />
-              <p>
-                <strong>{this.state.portfolio.titulo}</strong>
-              </p>
-              <p>{this.state.portfolio.descricao}</p>
-            </div>
-          </div>
+          {
+           Object.keys(this.state.portfolio)
+           .map(key => {
+             return <itemPortfolio />
+           })
+          }
         </div>
         <br />
 

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "firebase": "^8.2.5",
+    "re-base": "^4.0.0"
+  }
+}
