@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 
 import config from "./../firebase-config";
-import itemPortfolio from './itemPortfolio'
+import ItemPortfolio from "./ItemPortfolio";
 
 class Portfolio extends Component {
   constructor(props) {
@@ -9,8 +9,8 @@ class Portfolio extends Component {
 
     this.state = {
       portfolio: {
-        titulo: 'Paris',
-        descricao: 'Cidade Luz'
+        titulo: "Paris",
+        descricao: "Cidade Luz",
       },
     };
     config.syncState("portfolio", {
@@ -28,11 +28,10 @@ class Portfolio extends Component {
         <h4>What we have created</h4>
         <div className="row text-center ">
           {
-           Object.keys(this.state.portfolio)
-           .map(key => {
-             return <itemPortfolio />
-           })
-          }
+          Object.keys(this.state.portfolio)
+          .map(key => {
+            return <ItemPortfolio key={key} conteudo={this.state.portfolio[key]}/>
+          })}
         </div>
         <br />
 
