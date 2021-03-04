@@ -1,4 +1,4 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 
 import config from "./../firebase-config";
 import ItemPortfolio from "./ItemPortfolio";
@@ -8,11 +8,11 @@ class Portfolio extends Component {
     super(props);
 
     this.state = {
-      portfolio: {
-        titulo: "Paris",
-        descricao: "Cidade Luz",
-      },
+      portfolio: {},
     };
+  }
+
+  componentDidMount() {
     config.syncState("portfolio", {
       context: this,
       state: "portfolio",
@@ -27,10 +27,10 @@ class Portfolio extends Component {
         <br />
         <h4>What we have created</h4>
         <div className="row text-center ">
-          {
-          Object.keys(this.state.portfolio)
-          .map(key => {
-            return <ItemPortfolio key={key} conteudo={this.state.portfolio[key]}/>
+          {Object.keys(this.state.portfolio).map((key) => {
+            return (
+              <ItemPortfolio key={key} conteudo={this.state.portfolio[key]} />
+            );
           })}
         </div>
         <br />

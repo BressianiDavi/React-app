@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/database";
+import "firebase/storage";
 
 const Rebase = require("re-base");
 
@@ -11,12 +12,17 @@ const firebaseConfig = {
   storageBucket: "company-portfolio-63f13.appspot.com",
   messagingSenderId: "191571735719",
   appId: "1:191571735719:web:9974f6d2c11b8905435782",
-  measurementId: "G-SFE3YJXDXZ",
+  measurementId: "G-SFE3YJXDXZ"
 };
 //console.log("firebase", firebase);
 //console.log("firebase test", firebase.apps.length);
 
-const app = firebase.initializeApp(firebaseConfig);
-const config = Rebase.createClass(app.database());
+if (!firebase.apps.length){
+  firebase.initializeApp(firebaseConfig);
+} 
+const config = Rebase.createClass(firebase.database());
+
+
+export const storage = firebase.storage()
 
 export default config;

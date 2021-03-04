@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-      <div classname="App">
+      <div className="App">
           <Cabecalho/>
           <Route path='/' exact component={Inicio} />
           <Route path='/servicos' component={Servicos} />
